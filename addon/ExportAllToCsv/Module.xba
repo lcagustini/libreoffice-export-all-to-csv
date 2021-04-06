@@ -10,14 +10,14 @@
 	saveParams(0).Name = "FilterName"
 	saveParams(0).Value = "Text - txt - csv (StarCalc)"
 	saveParams(1).Name = "FilterOptions"
-	saveParams(1).Value = "44,34,0,1,1" ' 44=comma, 34=double-quote
+	saveParams(1).Value = "44,34,UTF8,1,1" ' 44=comma, 34=double-quote
 
 	sheets = document.Sheets
 	currentSheet = document.GetCurrentController.GetActiveSheet()
 	For Each sheet in sheets()
 		sheetName = sheet.Name
 		document.GetCurrentController.SetActiveSheet(sheet)
-		filename = directory + "/" + baseName + "." + sheetName + ".csv"
+		filename = directory + "/" + sheetName + ".csv"
 		fileURL = convertToURL(Filename)
 		document.StoreToURL(fileURL, saveParams())
 	Next sheet
